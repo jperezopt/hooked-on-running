@@ -1,4 +1,4 @@
-CREATE TABLE sponsors_submissions (
+CREATE TABLE sponsor_submissions (
     id INTEGER PRIMARY KEY,
     sponsor_email VARCHAR(50) NOT NULL,
     sponsor_name VARCHAR(50) NOT NULL,
