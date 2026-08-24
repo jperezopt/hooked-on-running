@@ -2,7 +2,7 @@ import sqlite3
 from sqlite3 import Connection
 
 
-def get_all_submissions(cx: Connection) -> list[tuple]:
+def get_all_submissions(cx: Connection) -> list[dict]:
     with cx:
         cur = cx.cursor()
         cur.execute(
