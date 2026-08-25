@@ -1,8 +1,10 @@
 import sqlite3
 from sqlite3 import Connection
 
+from models import Submission, Submissions
 
-def get_all_submissions(cx: Connection) -> list[dict]:
+
+def get_all_submissions(cx: Connection) -> Submissions:
     with cx:
         cur = cx.cursor()
         cur.execute(
@@ -11,10 +13,10 @@ def get_all_submissions(cx: Connection) -> list[dict]:
             FROM sponsor_submissions
             """
         )
-        return cur.fetchall()
+        return [Submission.model_validate(dict(submission)) for submission in cur]
 
 
-def insert_submission(cx: Connection, submission: dict):
+def insert_submission(cx: Connection, submission: Submission):
     with cx:
         cur = cx.cursor()
         cur.execute(
@@ -24,20 +26,18 @@ def insert_submission(cx: Connection, submission: dict):
             VALUES
                 (:sponsor_email, :sponsor_name, :sponsor_org, :sponsor_text)
             """,
-            submission,
+            submission.model_dump(),
         )
 
 
 if __name__ == "__main__":
     cx = sqlite3.connect("app.db")
     cx.row_factory = sqlite3.Row
+    test_submission = Submission(
+        sponsor_email="test@test.com",
+        sponsor_name="john test",
+        sponsor_org="testing inc",
+        sponsor_text="testing123",
+    )
 
-    test_submission = {
-        "sponsor_email": "JTest@gmail.com",
-        "sponsor_name": "Jon Test",
-        "sponsor_org": "Testing Inc",
-        "sponsor_text": "Testing 123",
-    }
-
-    for submission in get_all_submissions(cx):
-        print(dict(submission))
+    print(get_all_submissions(cx))
