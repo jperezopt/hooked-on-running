@@ -8,8 +8,8 @@ def get_submissions(cx: Connection) -> Submissions:
     with cx:
         cur = cx.cursor()
         cur.execute("""
-            SELECT id, sponsor_email, sponsor_name, sponsor_org, sponsor_text
-            FROM sponsor_submissions
+            SELECT id, email, name, org, message, created_at 
+            FROM submissions 
             """)
         return Submissions(
             submissions=[
@@ -24,10 +24,10 @@ def insert_submission(cx: Connection, submission: Submission):
         cur = cx.cursor()
         cur.execute(
             """
-            INSERT INTO sponsor_submissions
-                (sponsor_email, sponsor_name, sponsor_org, sponsor_text)
+            INSERT INTO submissions 
+                (email, name, org, message)
             VALUES
-                (:sponsor_email, :sponsor_name, :sponsor_org, :sponsor_text)
+                (:email, :name, :org, :message)
             """,
             submission.model_dump(),
         )
@@ -37,10 +37,10 @@ if __name__ == "__main__":
     cx = sqlite3.connect("app.db")
     cx.row_factory = sqlite3.Row
     test_submission = Submission(
-        sponsor_email="test@test.com",
-        sponsor_name="john test",
-        sponsor_org="testing inc",
-        sponsor_text="testing123",
+        email="test@test.com",
+        name="john test",
+        org="testing inc",
+        message="testing123",
     )
     # insert_submission(cx, test_submission)
     print(get_submissions(cx))

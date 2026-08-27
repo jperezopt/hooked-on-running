@@ -2,10 +2,12 @@ from pydantic import BaseModel
 
 
 class Submission(BaseModel):
-    sponsor_email: str
-    sponsor_name: str
-    sponsor_org: str
-    sponsor_text: str
+    id: int | None = None
+    email: str
+    name: str
+    org: str
+    message: str
+    created_at: str | None = None
 
 
 class Submissions(BaseModel):
