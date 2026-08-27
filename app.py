@@ -7,21 +7,28 @@ from models import Submissions, Submission
 from sqlite3 import Connection, Row
 
 app = FastAPI()
-cx = Connection('app.db')
+cx = Connection("app.db")
 cx.row_factory = Row
 
-templates = Jinja2Templates('./templates')
+templates = Jinja2Templates("./templates")
 
-@app.get('/')
+
+@app.get("/")
 async def home(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse(request, './index.html', context={})
+    submissions = get_submissions(cx)
+    return templates.TemplateResponse(
+        request, "./index.html", context=submissions.model_dump()
+    )
 
 
 @app.get("/submissions")
-async def submissions() -> Submissions:
-    return get_submissions(cx)
+async def submissions(request: Request) -> HTMLResponse:
+    submissions = get_submissions(cx)
+    return templates.TemplateResponse(request, './submissions.html', context=submissions.model_dump())
 
-@app.post("/submisson")
-async def submit(submission: Submission) -> Submission:
+
+@app.post("/submission")
+async def submission(request: Request, submission: Submission) -> HTMLResponse:
     insert_submission(cx, submission)
-    return submission
+    submissions = get_submissions(cx)
+    return templates.TemplateResponse(request, './submissions.html', context=submissions.model_dump())
