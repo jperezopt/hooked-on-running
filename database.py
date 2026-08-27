@@ -4,16 +4,16 @@ from sqlite3 import Connection
 from models import Submission, Submissions
 
 
-def get_all_submissions(cx: Connection) -> Submissions:
+def get_submissions(cx: Connection) -> Submissions:
     with cx:
         cur = cx.cursor()
-        cur.execute(
-            """
+        cur.execute("""
             SELECT id, sponsor_email, sponsor_name, sponsor_org, sponsor_text
             FROM sponsor_submissions
-            """
-        )
-        return [Submission.model_validate(dict(submission)) for submission in cur]
+            """)
+        return [
+            Submission.model_validate(dict(submission)) for submission in cur
+        ]
 
 
 def insert_submission(cx: Connection, submission: Submission):
@@ -39,5 +39,5 @@ if __name__ == "__main__":
         sponsor_org="testing inc",
         sponsor_text="testing123",
     )
-
-    print(get_all_submissions(cx))
+    # insert_submission(cx, test_submission)
+    print(get_submissions(cx))
