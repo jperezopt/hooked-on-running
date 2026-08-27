@@ -11,9 +11,12 @@ def get_submissions(cx: Connection) -> Submissions:
             SELECT id, sponsor_email, sponsor_name, sponsor_org, sponsor_text
             FROM sponsor_submissions
             """)
-        return [
-            Submission.model_validate(dict(submission)) for submission in cur
-        ]
+        return Submissions(
+            submissions=[
+                Submission.model_validate(dict(submission))
+                for submission in cur
+            ]
+        )
 
 
 def insert_submission(cx: Connection, submission: Submission):
