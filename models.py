@@ -7,5 +7,6 @@ class Submission(BaseModel):
     sponsor_org: str
     sponsor_text: str
 
+
 class Submissions(BaseModel):
     submissions: list[Submission]
