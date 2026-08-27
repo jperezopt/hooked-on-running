@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hooked on Running</title>
 </head>
+
 <body>
     <h1>
         Hooked on Running
     </h1>
-    
+    <form hx-post:"/submission" hx-trigger="submit"
+        <label>Interest Form</label>
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="organization" placeholder="Organization">
+        <input type="text" name="reason" placeholder="Reason">
+        <input type="submit">
+    </form>
+
+    {% for submission in submissions %}
+        <h3>{{ submission.org }}</h3>
+        <p>id: {{ submission.id }}</p>
+        <p>name: {{ submission.name }}</p>
+        <p>email: {{ submission.email }}</p>
+        <p>submitted: {{ submission.created_at }}</p>
+        <p>{{ submission.message }}</p>
+    {% endfor %}
+
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"
+        integrity="sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>
