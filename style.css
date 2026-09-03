@@ -1,12 +1,43 @@
-body { margin: 0; }
-img { width: 100%; height: auto; }
-
-.hero { position: relative; }
-
+body {
+    margin: 0;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.hero {
+    position: relative;
+}
+.hero-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.pill {
+  text-decoration: none;
+  color: #eeddbc;
+  background: #ab6230;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 999px;
+  text-align: center;
+  width: 150px;
+  padding: 10px 0;
+}
 .hero-logo {
     position: absolute;
     top: 5%;
     left: 50%;
     width: 25%;
+    max-width: 300px;
     transform: translateX(-50%);
 }
