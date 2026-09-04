@@ -1,43 +1,61 @@
+/* core */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    font-family: 'Fraunces', serif;
 }
+
 img {
     width: 100%;
     height: auto;
+    display: block;
 }
+
+p {
+    font-family: 'Baloo Bhaijaan 2', sans-serif;
+}
+
+/* hero */
 .hero {
     position: relative;
+    background-image: url('assets/grain.png'), url('assets/grain.png'), url('assets/hero.png');
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    aspect-ratio: 1;
 }
+
 .hero-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding: 1.5rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .pill {
-  text-decoration: none;
-  color: #eeddbc;
-  background: #ab6230;
-  font-family: Georgia, serif;
-  font-size: 18px;
-  font-weight: bold;
-  box-sizing: border-box;
-  border-radius: 999px;
-  text-align: center;
-  width: 150px;
-  padding: 10px 0;
+    text-decoration: none;
+    color: #eeddbc;
+    background: #ab6230;
+    border-radius: 999px;
+    text-align: center;
+    flex: 1;
+    padding: 1rem 0;
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
+
 .hero-logo {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     width: 25%;
-    max-width: 300px;
     transform: translateX(-50%);
 }
+
+/* about */
