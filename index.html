@@ -1,24 +1,21 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-
+    <title>Hooked on Running</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,900,0..100,0..1&family=Baloo+Bhaijaan+2:wght@400..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,900,100,1;1,9..144,900,100,1&family=Baloo+Bhaijaan+2:wght@400;700&family=Yellowtail&display=swap"
         rel="stylesheet">
-
-
-    <title>Hooked on Running</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="hero">
-        <nav class="hero-nav">
+
+    <header class="hero">
+        <nav class="nav" aria-label="Sections">
             <a class="pill" href="#about">about us</a>
             <a class="pill" href="#run">run with us!</a>
             <a class="pill" href="#gallery">gallery</a>
@@ -26,27 +23,136 @@
             <a class="pill" href="#contact">contact us</a>
         </nav>
         <img class="hero-logo" src="assets/logo.png" alt="logo">
-    </div>
-    <div class="us-section">
-        <a class="transition-bar"> </a>
-        <div class="about" id="about">
-            <h1>About Us</h1>
-            <p>
-                We like to pride ourselves on being a very open, fun, running group on campus. We are an inclusive group
-                that<br>welcomes people from all backgrounds and all running levels. We are all about promoting health
-                and
-                well-being<br>and we also emphasize the importance of making friends.
-            </p>
-            <p>
-                We care not only about our running community but also the community around us. We have volunteered at
-                the<br>Austin Marathon, supported local businesses with profit shares, and even partnered with an
-                Austin-based shoe<br>store to give our members good deals and fun collabs!
-            </p>
-        </div>
-    </div>
-    <div class="contact" id="contact">
-        <h1>Contact Us</h1>
-    </div>
+        <img class="stars" src="assets/stars.png" alt="stars">
+    </header>
+
+    <main>
+
+        <section id="about" class="section section--banded">
+            <div class="wrap">
+                <h2 class="title">About Us</h2>
+                <p>We like to pride ourselves on being a very open, fun, running group on campus. We are an inclusive
+                    group that welcomes people from all backgrounds and all running levels. We are all about promoting
+                    health and well-being and we also emphasize the importance of making friends.</p>
+                <p>We care not only about our running community but also the community around us. We have volunteered at
+                    the Austin Marathon, supported local businesses with profit shares, and even partnered with an
+                    Austin-based shoe store to give our members good deals and fun collabs!</p>
+            </div>
+        </section>
+
+        <section id="run" class="section section--longhorn">
+            <div class="wrap">
+                <h2 class="title">Run With Us!</h2>
+                <h3 class="subtitle">weekly run schedule</h3>
+
+                <ul class="schedule">
+                    <li>
+                        <span class="schedule-day">Tuesday</span>
+                        <span class="schedule-time">7pm</span>
+                        <span class="schedule-place">Little Field Fountain</span>
+                    </li>
+                    <li>
+                        <span class="schedule-day">Thursday</span>
+                        <span class="schedule-time">7am</span>
+                        <span class="schedule-place">Little Field Fountain</span>
+                    </li>
+                    <li>
+                        <span class="schedule-day">Saturday</span>
+                        <span class="schedule-time">8am</span>
+                        <span class="schedule-place">Barbara Jordan Statue</span>
+                    </li>
+                </ul>
+
+                <h3 class="subtitle">what does running with us look like?</h3>
+                <ul class="plain">
+                    glopin
+                </ul>
+
+                <a class="strava" href="#">
+                    <img src="assets/strava.png" alt="">
+                    Join our Strava!
+                </a>
+
+                <h3 class="subtitle">total distance<sup>*</sup> our group has run:</h3>
+                <p class="footnote">*as of 9/2026</p>
+                <p class="stat">1 billion miles</p>
+            </div>
+        </section>
+
+        <section id="gallery" class="section section--banded section--band-tall">
+            <div class="wrap">
+                <h2 class="title">Gallery</h2>
+            </div>
+            <div class="rail">
+                <article class="card">
+                    <div class="card-photo"></div>
+                    <h3 class="card-name">Event Name</h3>
+                    <p class="card-meta">Date</p>
+                </article>
+                <article class="card">
+                    <div class="card-photo"></div>
+                    <h3 class="card-name">Event Name</h3>
+                    <p class="card-meta">Date</p>
+                </article>
+                <article class="card">
+                    <div class="card-photo"></div>
+                    <h3 class="card-name">Event Name</h3>
+                    <p class="card-meta">Date</p>
+                </article>
+                <article class="card">
+                    <div class="card-photo"></div>
+                    <h3 class="card-name">Event Name</h3>
+                    <p class="card-meta">Date</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="knot" aria-hidden="true"><img src="assets/knot.png" alt=""></div>
+
+        <section id="officers" class="section">
+            <div class="wrap">
+                <h2 class="title">Officers</h2>
+            </div>
+            <div class="rail">
+                <article class="card card--officer">
+                    <h3 class="card-name">Officer Title</h3>
+                    <div class="card-photo"></div>
+                    <p class="card-meta">Studies: major/minor<br>Class of 'XX<br>Running shoe of choice: —</p>
+                </article>
+                <article class="card card--officer">
+                    <h3 class="card-name">Officer Title</h3>
+                    <div class="card-photo"></div>
+                    <p class="card-meta">Studies: major/minor<br>Class of 'XX<br>Running shoe of choice: —</p>
+                </article>
+                <article class="card card--officer">
+                    <h3 class="card-name">Officer Title</h3>
+                    <div class="card-photo"></div>
+                    <p class="card-meta">Studies: major/minor<br>Class of 'XX<br>Running shoe of choice: —</p>
+                </article>
+                <article class="card card--officer">
+                    <h3 class="card-name">Officer Title</h3>
+                    <div class="card-photo"></div>
+                    <p class="card-meta">Studies: major/minor<br>Class of 'XX<br>Running shoe of choice: —</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="wrap">
+                <h2 class="title">Contact Us</h2>
+                <ul class="links">
+                    <li><a href="https://instagram.com/hooked.on.running"><img src="assets/logo.png" alt="">Follow
+                            us on Instagram @hooked.on.running</a></li>
+                    <li><a href="#"><img src="assets/strava.png" alt="">Join our Strava group</a></li>
+                    <li>E-mail us at <a href="mailto:HookedOnRunning40@gmail.com">HookedOnRunning40@gmail.com</a></li>
+                </ul>
+                <img class="footer-mark" src="assets/logo-round.png"
+                    alt="Hooked on Running Run Club, University of Texas at Austin">
+            </div>
+            <img class="stars" src="assets/stars.png" alt="stars">
+        </section>
+
+    </main>
 </body>
 
 </html>
