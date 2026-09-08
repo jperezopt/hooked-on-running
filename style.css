@@ -1,23 +1,28 @@
 /* tokens */
 :root {
-    --paper:   white;
-    --cream:   #eeddbc;
-    --rust:    #ab6230;
+    --paper: white;
+    --cream: #eeddbc;
+    --rust: #ab6230;
     --apricot: #d99a62;
-    --olive:   #5a5940;
+    --olive: #5a5940;
     --display: 'Fraunces', serif;
-    --script:  'Yellowtail', cursive;
-    --body:    'Baloo Bhaijaan 2', sans-serif;
-    --grain:   url('assets/grain.png') center / cover no-repeat;
-    --gutter:  clamp(1rem, 4vw, 2.5rem);
+    --script: 'Yellowtail', cursive;
+    --body: 'Baloo Bhaijaan 2', sans-serif;
+    --grain: url('assets/grain.png') center / cover no-repeat;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
     --title-size: clamp(3rem, 9vw, 5.5rem);
-    --band: calc(var(--title-size) * 0.6);   /* band tracks the title */
+    --band: calc(var(--title-size) * 0.6);
+    /* band tracks the title */
 }
 
 /* base */
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -28,14 +33,23 @@ body {
     background: var(--paper);
 }
 
-img { display: block; max-width: 100%; height: auto; }
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
-p { margin: 0 0 1rem; }
+p {
+    margin: 0 0 1rem;
+}
 
-a { color: inherit; }
+a {
+    color: inherit;
+}
 
 .wrap {
-    position: relative;          /* paints above the section's ::before */
+    position: relative;
+    /* paints above the section's ::before */
     max-width: 72rem;
     margin-inline: auto;
     padding-inline: var(--gutter);
@@ -45,41 +59,50 @@ a { color: inherit; }
 .hero {
     position: relative;
     width: 100%;
-    aspect-ratio: 6 / 5;
+    aspect-ratio: 2350 / 2075;
+    overflow-x: hidden;
     background:
-        url('assets/logo.png') no-repeat 50% 10vw / 20%,
+        url('assets/logo.png') no-repeat 50% 15% / 24%,
         var(--grain),
-        var(--grain),
-        url('assets/hero.png') no-repeat 50% 100% / 100% auto;
+        linear-gradient(rgb(238 221 188 / 0.2), rgb(238 221 188 / 0.2)),
+        url('assets/stars.png') no-repeat 104% 102% / 33%,
+        url('assets/hero.png') no-repeat 50% 100% / cover;
 }
 
 .nav {
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    gap: 2rem;
-    padding: 1.5rem var(--gutter);
+    flex-wrap: wrap;
+    gap: 1rem;
     max-width: 72rem;
     margin-inline: auto;
+    padding-inline: var(--gutter);
+    padding-block: 1.5rem;
+    justify-content: center;
 }
 
 .pill {
-    flex: 1;
-    padding: 1rem 0;
+    flex: 0 1 auto;
+    padding: 0.45em 1.1em;
     border-radius: 999px;
     background: var(--rust);
     color: var(--cream);
     text-decoration: none;
     text-align: center;
+    white-space: nowrap;
     font-family: var(--display);
     font-weight: 900;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: 1.25rem;
+    line-height: 1.1;
 }
 
 /* sections */
 .section {
     position: relative;
-    display: flow-root;          /* stops the title's negative margin collapsing through */
+    display: flow-root;
     padding-block: 0 3rem;
     background: var(--grain), var(--paper);
     background-blend-mode: soft-light;
@@ -92,15 +115,19 @@ a { color: inherit; }
 .section--banded::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: var(--band);
     background: var(--grain), var(--cream);
     background-blend-mode: soft-light;
 }
 
 .section--banded .title {
-    margin-top: -0.45em;         /* centered on the hero/band seam */
-    margin-bottom: 0.35em;       /* clears the bottom of the band */
+    margin-top: -0.45em;
+    /* centered on the hero/band seam */
+    margin-bottom: 0.35em;
+    /* clears the bottom of the band */
 }
 
 .section--longhorn::before {
@@ -130,10 +157,20 @@ a { color: inherit; }
     color: var(--apricot);
     margin: 2rem 0 0.75rem;
 }
-.subtitle sup { font-size: 0.5em; }
 
-.plain { margin: 0 0 1rem; padding-left: 1.25rem; }
-.footnote { font-size: 0.875rem; margin: 0; }
+.subtitle sup {
+    font-size: 0.5em;
+}
+
+.plain {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+}
+
+.footnote {
+    font-size: 0.875rem;
+    margin: 0;
+}
 
 /* run */
 .schedule {
@@ -145,12 +182,18 @@ a { color: inherit; }
     gap: 1rem;
     text-align: center;
 }
-.schedule li { display: grid; gap: 0.15rem; }
+
+.schedule li {
+    display: grid;
+    gap: 0.15rem;
+}
+
 .schedule-day {
     font-family: var(--script);
     font-size: clamp(2.25rem, 6vw, 3.5rem);
     line-height: 1;
 }
+
 .schedule-time {
     font-family: var(--display);
     font-weight: 900;
@@ -166,7 +209,11 @@ a { color: inherit; }
     font-weight: 900;
     color: var(--rust);
 }
-.strava img { width: 2.5rem; height: 2.5rem; }
+
+.strava img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
 
 .stat {
     font-family: var(--display);
@@ -185,12 +232,17 @@ a { color: inherit; }
     display: grid;
     gap: 1.25rem;
 }
+
 .links a {
     display: inline-flex;
     align-items: center;
     gap: 1rem;
 }
-.links img { width: 2.75rem; height: 2.75rem; }
+
+.links img {
+    width: 2.75rem;
+    height: 2.75rem;
+}
 
 .footer-mark {
     width: 10rem;
@@ -198,33 +250,33 @@ a { color: inherit; }
     opacity: 0.6;
 }
 
-/* stars — one image, pinned bottom right of whatever it's in */
 .stars {
     position: absolute;
-    right: 0; bottom: 0;
+    right: 0;
+    bottom: 0;
     width: clamp(10rem, 20vw, 18rem);
 }
 
 /* motion */
 @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    html {
+        scroll-behavior: auto;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
+
     .pill {
-        flex: 0 1 auto;
-        padding: 0.5rem 1.1rem;
+        flex: 0 0 auto;
     }
 
     .schedule {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-
-    .stars { width: 8rem; }
 }
